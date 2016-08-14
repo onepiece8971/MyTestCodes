@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<script>
+    var father = function () {
+        this.name = 'father';
+    };
+    father.prototype.getName = function () {
+        console.log(this.name);
+    };
+    father.prototype.setName = function (name) {
+        this.name = name;
+    };
+    var son = function () {
+        father.call(this);
+        this.name = 'son';
+        this.age = 17;
+    };
+    function inherit(son, father) {
+        var pro = Object.create(father.prototype);
+        pro.constructor = son;
+        son.prototype = pro;
+    }
+
+    inherit(son, father);
+
+    var you = new son();
+    you.getName();
+    you.setName('son2');
+    you.getName();
+    console.log(you.age);
+    console.log(son.prototype);
+</script>
+</body>
+</html>

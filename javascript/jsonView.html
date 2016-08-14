@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JsonView</title>
+    <script src="../vendor/jquery-1.11.3.min.js"></script>
+    <script src="../vendor/jquery-jsonview-master/dist/jquery.jsonview.js"></script>
+    <link rel="stylesheet" href="../vendor/jquery-jsonview-master/dist/jquery.jsonview.css">
+</head>
+<body>
+<div id="json"></div>
+<div id="json-collasped"></div>
+<script>
+    var json = {
+        "hey": "guy",
+        "anumber": 243,
+        "anobject": {"whoa": "nuts", "anarray": [1, 2, "thr<h1>ee"], "more": "stuff"},
+        "awesome": true,
+        "bogus": false,
+        "meaning": null,
+        "japanese": "明日がある。",
+        "link": "http://jsonview.com",
+        "notLink": "http://jsonview.com is great"
+    };
+
+    $(function() {
+//        $("#json").JSONView(json);
+        // with options
+        $("#json-collasped").JSONView(json, { collapsed: true });
+    });
+</script>
+</body>
+</html>

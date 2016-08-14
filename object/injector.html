@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var service = function() {
+        return { name: 'Service' };
+    };
+    var router = function() {
+        return { name: 'Router' };
+    };
+    var injector = {
+        dependencies: {},
+        register: function (key, value) {
+            this.dependencies[key] = value;
+        },
+        resolve: function (deps, func, scope) {
+            scope = scope || {};
+            for (var i = 0; i < deps.length, d = deps[i]; i++) {
+                if (this.dependencies[d]) {
+                    scope[d] = this.dependencies[d];
+                } else {
+                    throw new Error('Can\'t resolve ' + d);
+                }
+            }
+            return function () {
+                func.apply(scope, Array.prototype.slice.call(arguments, 0));
+            }
+        }
+    };
+    injector.register('s', service);
+    injector.register('r', router);
+    var scope = {'kankan':'heiheihei'};
+    var doSomething = injector.resolve(['s', 'r'], function(other) {
+        console.log(this.s().name);
+        console.log(this.r().name);
+        console.log(other);
+        console.log(this.kankan);
+    }, scope);
+    doSomething('other');
+</script>
+</body>
+</html>
