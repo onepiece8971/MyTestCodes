@@ -5,7 +5,7 @@ class Counter extends Component {
         //从组件的props属性中导入四个方法和一个变量
         const { increment, counter } = this.props;
         let addNumber = function(){
-            const n = document.getElementsByTagName('input')[0].value;
+            let n = document.getElementsByTagName('input')[0].value;
             increment(n);
         }
         //渲染组件，包括一个数字，四个按钮
