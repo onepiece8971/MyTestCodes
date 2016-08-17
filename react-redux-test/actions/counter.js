@@ -1,8 +1,8 @@
-export const INCREMENT_COUNTER = 'INCREMENT_COUNTER'
+export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
 
 export function increment(text) {
-    return {
-        type: INCREMENT_COUNTER,
-        text: text,
-    }
+  return {
+    actionText: text,
+    type:       INCREMENT_COUNTER,
+  };
 }
