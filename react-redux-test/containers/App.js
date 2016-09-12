@@ -7,7 +7,8 @@ export default connect(
   //将state.counter绑定到props的counter
   state => {
     return {
-      counter: state.counter,
+      counter: state.counter, // 自动匹配reducers对应方法返回的值
+      account: state.account,
     };
   },
   CounterActions
