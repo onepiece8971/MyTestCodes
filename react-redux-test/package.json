@@ -16,15 +16,16 @@
   "author": "chenglinz",
   "license": "ISC",
   "dependencies": {
-    "webpack": "^1.13.1",
-    "react": "latest",
-    "react-dom": "latest",
-    "redux": "latest",
-    "react-redux": "latest",
-    "redux-thunk": "latest",
     "babel-core": "latest",
     "babel-loader": "latest",
     "babel-preset-es2015": "latest",
-    "babel-preset-react": "latest"
+    "babel-preset-react": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-redux": "latest",
+    "redux": "latest",
+    "redux-actions": "^0.12.0",
+    "redux-thunk": "latest",
+    "webpack": "^1.13.1"
   }
 }

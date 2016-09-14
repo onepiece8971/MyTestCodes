@@ -1,14 +1,12 @@
-import { INCREMENT_ACCOUNT } from '../actions/counter';
+import { handleActions } from 'redux-actions';
+const account = handleActions({
+  INCREMENT_ACCOUNT: (state, {payload}) => state - parseInt(payload),
+}, 10);
 
-//reducer其实也是个方法而已,参数是state和action,返回值是新的state
-export default function account(state = 10, action) {
-  switch (action.type) {
-    case INCREMENT_ACCOUNT: {
-      const text = parseInt(action.actionText);
-      return state - text;
-    }
-    default: {
-      return state;
-    }
-  }
-}
+// 单个reducer
+/*import { handleAction } from 'redux-actions';
+const account = handleAction('INCREMENT_ACCOUNT', {
+  next: (state, {payload}) => state - parseInt(payload),
+}, 10);*/
+
+export default account;

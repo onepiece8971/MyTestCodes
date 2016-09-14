@@ -3,18 +3,18 @@ import React, { Component, PropTypes } from 'react';
 class Counter extends Component {
   render() {
     //从组件的props属性中导入四个方法和一个变量
-    const { account, increment, counter, sub, counterSub } = this.props;
+    const { account, incrementCounter, counter, incrementAccount, incrementSub } = this.props;
     let addNumber = function() {
       let n = document.getElementsByTagName('input')[0].value;
-      increment(n);
+      incrementCounter(n);
     };
     let counterSubNumber = function() {
       let n = document.getElementsByTagName('input')[0].value;
-      counterSub(n);
+      incrementSub(n);
     };
     let subNumber = function() {
       let n = document.getElementsByTagName('input')[1].value;
-      sub(n);
+      incrementAccount(n);
     };
     //渲染组件，包括一个数字，四个按钮
     return (
@@ -40,12 +40,12 @@ class Counter extends Component {
 //限制组件的props安全
 Counter.propTypes = {
   //counter必须为数字，且必须存在
-  account:   PropTypes.number.isRequired,
-  counter:   PropTypes.number.isRequired,
-  counterSub: PropTypes.func.isRequired,
+  account: PropTypes.number.isRequired,
+  counter: PropTypes.number.isRequired,
+  incrementAccount: PropTypes.func.isRequired,
   //increment必须为fucntion,且必须存在
-  increment: PropTypes.func.isRequired,
-  sub: PropTypes.func.isRequired,
+  incrementCounter: PropTypes.func.isRequired,
+  incrementSub: PropTypes.func.isRequired,
 };
 
 export default Counter;
