@@ -3,11 +3,13 @@ var webpack = require('webpack');
 
 module.exports = {
     devtool: 'eval',
-    entry: [
-        'webpack-dev-server/client?http://localhost:3000',
-        'webpack/hot/only-dev-server',
-        './src/index'
-    ],
+    entry: {
+        main: [
+            'webpack-dev-server/client?http://localhost:3000',
+            'webpack/hot/only-dev-server',
+            './src/index'
+        ]
+    },
     output: {
         path: path.join(__dirname, 'static'),
         filename: 'bundle.js',
@@ -20,8 +22,16 @@ module.exports = {
         loaders: [
             {
                 test: /\.js$/,
-                loaders: ['react-hot', 'babel'],
+                loaders: ['react-hot'],
                 include: path.join(__dirname, 'src')
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel',
+                include: path.join(__dirname, 'src'),
+                query: {
+                    presets: ['react', 'es2015']
+                }
             },
             {test: /\.css$/, loader: 'style!css'}
         ]
