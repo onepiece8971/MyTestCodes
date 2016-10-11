@@ -22,7 +22,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.js$/,
-                loaders: ['react-hot'],
+                loader: 'react-hot',
                 include: path.join(__dirname, 'src')
             },
             {
