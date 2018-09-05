@@ -6,7 +6,7 @@
  * Date: 2016/9/1
  * Time: 21:37
  */
-require __DIR__ . '/Container.php';
+require __DIR__.'/Container.php';
 
 
 interface TrafficTool
